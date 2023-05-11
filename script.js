@@ -1,22 +1,17 @@
 let redDecimalValue = parseInt(document.getElementById("red").value, 10)
 let greenDecimalValue = parseInt(document.getElementById("green").value, 10)
 let blueDecimalValue = parseInt(document.getElementById("blue").value, 10)
-
 let redHexadecimalValue = "00"
 let greenHexadecimalValue = "00"
 let blueHexadecimalValue = "00"
-                
 let currentColor = "#000000"
 let currentColorValue = "🎨#000000"
-                
 let mouseIsClicked = false
-                
+
 convertRedToHexadecimal()
 convertGreenToHexadecimal()
 convertBlueToHexdecimal()
-                
-document.getElementById("currentColorValue").innerHTML = currentColorValue
-                                
+                         
 function convertRedToHexadecimal() {
     redHexadecimalValue = parseInt(document.getElementById("red").value, 10)
     redHexadecimalValue = redHexadecimalValue.toString(16)
@@ -43,16 +38,13 @@ function convertBlueToHexdecimal () {
     document.getElementById("currentColorSample").style.backgroundColor = currentColor
     document.getElementById("currentColorValue").innerHTML = "🎨"+currentColor
 }
-                
-red.addEventListener("input", convertRedToHexadecimal)
-green.addEventListener("input", convertGreenToHexadecimal)
-blue.addEventListener("input", convertBlueToHexdecimal)
-                
+                                
 function createSketchArea() {
     let table = document.createElement("table")
     table.setAttribute("id", "sketchArea")
-    table.style.margin = "0 auto"
-    table.style.border = "1px solid black"
+    //table.style.margin = "0 auto"
+    //table.style.border = "1px solid black"
+    //table.style.margin = "30px"
     table.setAttribute("cellspacing", 0)
     for (let i = 0; i < 16; i++) {
         let row = table.insertRow(i)
@@ -60,11 +52,11 @@ function createSketchArea() {
             let cell = row.insertCell(j)
             cell.innerHTML = "&nbsp"
             cell.className = "not-selectable"
-            cell.style.width = "50px"
-            cell.style.height = "50px"
-            cell.style.border = "0px"
-            cell.style.padding = "0px"
-            cell.style.margin = "0px"
+            //cell.style.width = "50px"
+            //cell.style.height = "50px"
+            //cell.style.border = "0px"
+            //cell.style.padding = "0px"
+            //cell.style.margin = "0px"
             cell.addEventListener("pointerdown",
                 function(e) {
                     e.preventDefault()
@@ -95,7 +87,11 @@ function createSketchArea() {
                     }
                 }
             )
-                    document.body.appendChild(table)
+            document.body.appendChild(table)
         }
     }
 }
+
+red.addEventListener("input", convertRedToHexadecimal)
+green.addEventListener("input", convertGreenToHexadecimal)
+blue.addEventListener("input", convertBlueToHexdecimal)

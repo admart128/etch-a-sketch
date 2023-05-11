@@ -1,3 +1,17 @@
+#sketchArea {
+    margin: 0 auto;
+    border: 1px solid black;
+    margin: 30px;
+}
+
+.not-selectable {
+    width: 5.625vw;
+    height: 5.625vw;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
 table {
     border : 0px solid
 }
