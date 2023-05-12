@@ -12,6 +12,17 @@
     margin: 0px;
 }
 
+.color-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-controls {
+    display: flex;
+}
+
 table {
     border : 0px solid
 }
@@ -20,11 +31,7 @@ table.center {
     margin-left:auto; 
     margin-right:auto
 }
-            
-div {
-    margin: 50px;
-}
-            
+                        
 #currentColorSample {
     width : 50px;
     height : 50px;

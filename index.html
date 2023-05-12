@@ -7,20 +7,28 @@
         <link rel="stylesheet" href="style.css" type="text/css">
     </head>
     <body onload="createSketchArea()"> 
-        <div>
-            Red <input type="range" id="red" min="0" max="255" value="0"></input>
-            Green <input type="range" id="green" min="0" max="255" value="0"></input>
-            Blue <input type="range" id="blue" min="0" max="255" value="0"></input>
-        </div>
-        <div id="currentColorValue">
-        </div>  
-        <div>
-            <table id="currentColorSample">
-                <tr>
-                    <td>
-                    </td>
-                </tr>
-            </table>
+        <div id="user-controls">
+            <div class="color-input">
+                <div>
+                    Red <input type="range" id="red" min="0" max="255" value="0"></input>
+                </div>
+                <div>
+                    Green <input type="range" id="green" min="0" max="255" value="0"></input>
+                </div>
+                <div>
+                    Blue <input type="range" id="blue" min="0" max="255" value="0"></input>
+                </div>
+            </div>
+            <div id="color-value-and-sample">
+                <div id="currentColorValue">
+                </div>  
+                <table id="currentColorSample">
+                    <tr>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
         <script src="script.js"></script>
     </body>
