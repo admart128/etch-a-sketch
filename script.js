@@ -1,44 +1,34 @@
-let redDecimalValue = parseInt(document.getElementById("red").value, 10)
-let greenDecimalValue = parseInt(document.getElementById("green").value, 10)
-let blueDecimalValue = parseInt(document.getElementById("blue").value, 10)
-let redHexadecimalValue = "00"
-let greenHexadecimalValue = "00"
-let blueHexadecimalValue = "00"
+let colorValues = {
+    red: '00',
+    green: '00',
+    blue: '00'
+};
+
 let currentColor = "#000000"
 let currentColorValue = "🎨#000000"
 let mouseIsClicked = false
 
-convertRedToHexadecimal()
-convertGreenToHexadecimal()
-convertBlueToHexdecimal()
+convertToHexadecimal('red');
+convertToHexadecimal('green');
+convertToHexadecimal('blue');
 
 function renderNewColor() {
-    currentColor = "#"+redHexadecimalValue+greenHexadecimalValue+blueHexadecimalValue
-    document.getElementById("currentColorSample").style.backgroundColor = currentColor
-    document.getElementById("currentColorValue").innerHTML = "🎨"+currentColor
+    currentColor = '#' + colorValues.red + colorValues.green + colorValues.blue;
+    document.getElementById('currentColorSample').style.backgroundColor = currentColor;
+    document.getElementById('currentColorValue').innerHTML = '🎨' + currentColor;
 }
 
-function convertRedToHexadecimal() {
-    redHexadecimalValue = parseInt(document.getElementById("red").value, 10)
-    redHexadecimalValue = redHexadecimalValue.toString(16)
-    redHexadecimalValue = redHexadecimalValue.padStart(2, '0')
-    renderNewColor()
+function convertToHexadecimal(colorName) {
+    let decimalValue = parseInt(document.getElementById(colorName).value, 10);
+    let hexadecimalValue = decimalValue.toString(16).padStart(2, '0');
+    colorValues[colorName] = hexadecimalValue;
+    renderNewColor();
 }
-                
-function convertGreenToHexadecimal() {
-    greenHexadecimalValue = parseInt(document.getElementById("green").value, 10)
-    greenHexadecimalValue = greenHexadecimalValue.toString(16)
-    greenHexadecimalValue = greenHexadecimalValue.padStart(2, '0')
-    renderNewColor()
-}
-                
-function convertBlueToHexdecimal () {
-    blueHexadecimalValue = parseInt(document.getElementById("blue").value, 10)
-    blueHexadecimalValue = blueHexadecimalValue.toString(16)
-    blueHexadecimalValue = blueHexadecimalValue.padStart(2, '0')
-    renderNewColor()
-}
-                                
+
+['red', 'green', 'blue'].forEach(color => {
+    document.getElementById(color).addEventListener('input', () => convertToHexadecimal(color));
+});
+
 function createSketchArea() {
     let table = document.createElement("table")
     table.setAttribute("id", "sketchArea")
@@ -91,7 +81,3 @@ function createSketchArea() {
         }
     }
 }
-
-red.addEventListener("input", convertRedToHexadecimal)
-green.addEventListener("input", convertGreenToHexadecimal)
-blue.addEventListener("input", convertBlueToHexdecimal)
