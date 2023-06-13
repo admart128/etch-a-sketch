@@ -11,32 +11,32 @@ let mouseIsClicked = false
 convertRedToHexadecimal()
 convertGreenToHexadecimal()
 convertBlueToHexdecimal()
-                         
+
+function renderNewColor() {
+    currentColor = "#"+redHexadecimalValue+greenHexadecimalValue+blueHexadecimalValue
+    document.getElementById("currentColorSample").style.backgroundColor = currentColor
+    document.getElementById("currentColorValue").innerHTML = "🎨"+currentColor
+}
+
 function convertRedToHexadecimal() {
     redHexadecimalValue = parseInt(document.getElementById("red").value, 10)
     redHexadecimalValue = redHexadecimalValue.toString(16)
     redHexadecimalValue = redHexadecimalValue.padStart(2, '0')
-    currentColor = "#"+redHexadecimalValue+greenHexadecimalValue+blueHexadecimalValue
-    document.getElementById("currentColorSample").style.backgroundColor = currentColor
-    document.getElementById("currentColorValue").innerHTML = "🎨"+currentColor
+    renderNewColor()
 }
                 
 function convertGreenToHexadecimal() {
     greenHexadecimalValue = parseInt(document.getElementById("green").value, 10)
     greenHexadecimalValue = greenHexadecimalValue.toString(16)
     greenHexadecimalValue = greenHexadecimalValue.padStart(2, '0')
-    currentColor = "#"+redHexadecimalValue+greenHexadecimalValue+blueHexadecimalValue
-    document.getElementById("currentColorSample").style.backgroundColor = currentColor
-    document.getElementById("currentColorValue").innerHTML = "🎨"+currentColor
+    renderNewColor()
 }
                 
 function convertBlueToHexdecimal () {
     blueHexadecimalValue = parseInt(document.getElementById("blue").value, 10)
     blueHexadecimalValue = blueHexadecimalValue.toString(16)
     blueHexadecimalValue = blueHexadecimalValue.padStart(2, '0')
-    currentColor = "#"+redHexadecimalValue+greenHexadecimalValue+blueHexadecimalValue
-    document.getElementById("currentColorSample").style.backgroundColor = currentColor
-    document.getElementById("currentColorValue").innerHTML = "🎨"+currentColor
+    renderNewColor()
 }
                                 
 function createSketchArea() {
